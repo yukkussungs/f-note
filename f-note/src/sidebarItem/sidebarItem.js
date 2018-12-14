@@ -15,7 +15,7 @@ class SidebarItemComponent extends React.Component {
         <ListItem
           className={classes.ListItem}
           selected={selectedNoteIndex === _index}
-          alignItems="flext-start"
+          alignItems="flex-start"
         >
           <div
             className={classes.textSection}
