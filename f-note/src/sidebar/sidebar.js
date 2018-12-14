@@ -13,7 +13,6 @@ class SidebarComponent extends React.Component {
       title: null
     };
   }
-
   render() {
     const { notes, classes, selectedNoteIndex } = this.props;
 
@@ -30,7 +29,7 @@ class SidebarComponent extends React.Component {
                 className={classes.newNoteInput}
                 placeholder="Enter note title"
                 onKeyUp={e => this.updateTitle(e.target.value)}
-              />
+              ></input>
               <Button
                 className={classes.newNoteSubmitBtn}
                 onClick={this.newNote}
@@ -65,15 +64,16 @@ class SidebarComponent extends React.Component {
   newNoteBtnClick = () => {
     this.setState({ title: null, addingNote: !this.state.addingNote });
   };
-
   updateTitle = txt => {
     this.setState({ title: txt });
   };
-
-  newNote = () => console.log(this.state);
-
+  newNote = () => {
+    this.setState({ title: null, addingNote: false });
+  };
   selectNote = (n, i) => this.props.selectNote(n, i);
-  deleteNote = () => console.log("deleteNote note");
+  deleteNote = note => {
+    console.log("deleted note");
+  };
 }
 
 export default withStyles(styles)(SidebarComponent);

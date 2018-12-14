@@ -13,7 +13,7 @@ class SidebarItemComponent extends React.Component {
     return (
       <div key={_index}>
         <ListItem
-          className={classes.ListItem}
+          className={classes.listItem}
           selected={selectedNoteIndex === _index}
           alignItems="flex-start"
         >
@@ -34,10 +34,14 @@ class SidebarItemComponent extends React.Component {
       </div>
     );
   }
+  selectNote = (n, i) => {
+    console.log("selectNote : n : ", n);
+    console.log("selectNote : i : ", i);
 
-  selectNote = (n, i) => this.props.selectNote(n, i);
+    return this.props.selectNote(n, i);
+  };
   deleteNote = note => {
-    if (window.confirm(`Are you sure you want to delte: ${note.title}`)) {
+    if (window.confirm(`Are you sure you want to delete: ${note.title}`)) {
       this.props.deleteNote(note);
     }
   };
