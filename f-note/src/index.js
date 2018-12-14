@@ -4,25 +4,25 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-const firebase = require("firebase");
-require("firebase/firestore");
 require("dotenv").config();
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const firebase = require("firebase");
+require("firebase/firestore");
 
-console.log("process.env.APIKEY : ", process.env.APIKEY);
 //set firebase
-firebase.initializeApp({
-  apiKey: process.env.APIKEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID
-});
+const firebaseConfig = {
+  apiKey: "AIzaSyB7bPm935DT2r_2m5piS3Mffa40r5t77pw",
+  authDomain: "f-note-fa5ea.firebaseapp.com",
+  databaseURL: "https://f-note-fa5ea.firebaseio.com",
+  projectId: "f-note-fa5ea",
+  storageBucket: "f-note-fa5ea.appspot.com",
+  messagingSenderId: "52206732270",
+  appId: "1:52206732270:web:98bc9e58e71438975a84ff"
+};
 
-ReactDOM.render(<App />, document.getElementById("root"));
+firebase.initializeApp(firebaseConfig);
+
+ReactDOM.render(<App />, document.getElementById("f_note-container"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
