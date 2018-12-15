@@ -54,6 +54,7 @@ class App extends React.Component {
 
   selectNote = (note, index) =>
     this.setState({ selectedNoteIndex: index, selectedNote: note });
+
   noteUpdate = (id, noteObj) => {
     firebase
       .firestore()
